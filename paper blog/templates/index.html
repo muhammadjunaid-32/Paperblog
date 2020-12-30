@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="paper container">
+      <img src="{{url_for('static',filename='logo.jpg')}}" alt="Total techie" class="float-right" style="width: 150px;height: 200px;">
+      <h2>Total techie</h2>
+      <span>A blog for <span class="text-secondary"> tech lovers </span></span>
+  </div>
+  <nav class="border margin-top-small container">
+    <div class="nav-brand">
+      <h4><a href="/">Total techie</a></h4>
+    </div>
+    <div class="collapsible">
+      <input id="collapsible2" type="checkbox" name="collapsible2">
+      <label for="collapsible2">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+      <div class="collapsible-body">
+        <ul class="inline">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="row paper container margin-top-small">
+    {% for post in post%}
+    <div class="card margin-left-small" style="width: 20rem;">
+        <div class="card-body">
+          <h4 class="card-title">{{post.title}}</h4>
+          <p class="card-text">{{ post.content[0:50]}}....</p>
+          <a class="card-link" href="post/{{post.id}}">Continue reading</a>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+  <nav class="paper container margin-top-large"><span class="text-center">Copyrights &copy; Total techie 2020-21</span></nav>
+</body>
+</html>
